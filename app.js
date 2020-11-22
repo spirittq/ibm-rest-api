@@ -1,4 +1,12 @@
+const express = require('express');
+const app = express();
 var tools = require('./tools');
-const url = "https://www.vrk.lt/statiniai/puslapiai/rinkimai/rt.json";
+const url = 'https://www.vrk.lt/statiniai/puslapiai/rinkimai/rt.json';
 
-tools.getData(url);
+
+app.get('/api/v1/elections', (req, res) =>{
+  tools.getData(url);
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Listening on port ${port}`));
