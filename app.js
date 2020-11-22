@@ -18,6 +18,19 @@ app.get('/api/v1/elections', (req, res) =>{
       };
       electionsArray.push(election);
     });
+
+    if (req.query.sortbydate){
+      if (req.query.sortbydate === 'asc'){
+        electionsArray.sort((a, b) =>{
+          return (new Date(a.date) - new Date(b.date));
+        });
+      } else if (req.query.sortbydate === 'desc'){
+        electionsArray.sort((a, b) =>{
+          return (new Date(b.date) - new Date(a.date));
+        });
+      };
+    };
+
     res.send(JSON.stringify(electionsArray, null, 2));
   });
 });
