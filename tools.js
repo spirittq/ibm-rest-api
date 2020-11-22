@@ -1,5 +1,4 @@
 const request = require("request");
-const url = "https://www.vrk.lt/statiniai/puslapiai/rinkimai/rt.json";
 
 function getData(url){
   request.get(url, (error, response, body) => {
@@ -8,4 +7,4 @@ function getData(url){
   });
 };
 
-getData(url);
+module.exports.getData = getData;
