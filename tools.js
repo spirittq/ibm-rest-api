@@ -1,9 +1,9 @@
 const request = require("request");
 
-function getData(url){
+function getData(url, callback){
   request.get(url, (error, response, body) => {
-    if (error) return console.log(error);
-    else return console.log(body);
+    if (error) callback(error);
+    else callback(undefined, body);
   });
 };
 
