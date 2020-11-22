@@ -31,7 +31,8 @@ app.get('/api/v1/elections', (req, res) =>{
       };
     };
 
-    res.send(JSON.stringify(electionsArray, null, 2));
+    const electionsObj = {data: electionsArray};
+    res.send(JSON.stringify(electionsObj, null, 2));
   });
 });
 
